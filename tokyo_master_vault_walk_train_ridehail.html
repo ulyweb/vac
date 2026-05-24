@@ -1,0 +1,3335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#ff6f91" name="theme-color"/>
+<title>Tokyo Family Itinerary Dashboard | June 7-10, 2026</title>
+<style>
+    :root {
+      --ink: #172033;
+      --ink-soft: #4a5568;
+      --muted: #6b7280;
+      --paper: rgba(255, 255, 255, 0.74);
+      --paper-strong: rgba(255, 255, 255, 0.92);
+      --paper-soft: rgba(255, 255, 255, 0.52);
+      --line: rgba(255, 255, 255, 0.62);
+      --shadow: 0 24px 70px rgba(31, 41, 55, 0.18);
+      --shadow-tight: 0 12px 34px rgba(31, 41, 55, 0.16);
+      --rose: #ff4f86;
+      --rose-2: #ff7aa2;
+      --sun: #ffcf5c;
+      --orange: #ff8a4c;
+      --aqua: #28c6d7;
+      --mint: #3cd69b;
+      --violet: #8f6cff;
+      --blue: #4b9dff;
+      --gold: #d49c24;
+      --good: #118a5b;
+      --warn: #b45309;
+      --danger: #be123c;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max: 1180px;
+      --ease: cubic-bezier(.2,.8,.2,1);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: #f7fbff;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(255, 207, 92, .78), transparent 25rem),
+        radial-gradient(circle at 92% 2%, rgba(75, 157, 255, .42), transparent 28rem),
+        radial-gradient(circle at 10% 88%, rgba(40, 198, 215, .44), transparent 26rem),
+        linear-gradient(135deg, #fff6d6 0%, #ffdfe9 35%, #dff8ff 70%, #fffaf0 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::before {
+      opacity: .42;
+      background-image:
+        linear-gradient(115deg, transparent 0 19%, rgba(255,255,255,.42) 19% 20%, transparent 20% 42%, rgba(255,255,255,.32) 42% 43%, transparent 43%),
+        radial-gradient(circle at 50% 32%, rgba(255,255,255,.6) 0 1px, transparent 1.6px);
+      background-size: 280px 180px, 28px 28px;
+    }
+
+    body::after {
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.55)),
+        radial-gradient(circle at 76% 32%, rgba(255, 79, 134, .18), transparent 20rem);
+      backdrop-filter: blur(0px);
+    }
+
+    a { color: inherit; }
+
+    button, summary {
+      font: inherit;
+      color: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 1rem;
+      top: .75rem;
+      z-index: 1000;
+      transform: translateY(-150%);
+      transition: transform .2s var(--ease);
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      background: var(--paper-strong);
+      box-shadow: var(--shadow-tight);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .app-shell {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+      padding: 24px 0 56px;
+    }
+
+    .glass {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      padding: clamp(22px, 4vw, 44px);
+      min-height: 360px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.82), rgba(255,255,255,.36)),
+        radial-gradient(circle at 82% 22%, rgba(255,79,134,.34), transparent 18rem),
+        radial-gradient(circle at 72% 86%, rgba(40,198,215,.32), transparent 20rem);
+    }
+
+    .hero::after {
+      content: "TOKYO";
+      position: absolute;
+      right: -2.4rem;
+      bottom: -5.6rem;
+      z-index: -1;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(5rem, 18vw, 13rem);
+      font-weight: 900;
+      letter-spacing: -.08em;
+      color: rgba(255,255,255,.54);
+      text-shadow: 0 18px 45px rgba(255,79,134,.14);
+      line-height: .72;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      width: fit-content;
+      padding: .48rem .78rem;
+      border-radius: 999px;
+      color: #8a2b47;
+      background: rgba(255, 255, 255, .62);
+      border: 1px solid rgba(255, 255, 255, .85);
+      font-weight: 800;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .hero h1 {
+      max-width: 860px;
+      margin: 18px 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.35rem, 7vw, 5.25rem);
+      line-height: .92;
+      letter-spacing: -.055em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(92deg, #ff3d7d, #ff8a4c 42%, #1aa6c0 78%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-lede {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(1rem, 2.1vw, 1.25rem);
+      color: var(--ink-soft);
+      font-weight: 650;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-stat {
+      min-height: 112px;
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.78);
+      box-shadow: 0 10px 30px rgba(31, 41, 55, .08);
+    }
+
+    .hero-stat span {
+      display: block;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.05rem;
+      line-height: 1.18;
+    }
+
+    .hero-stat small {
+      display: block;
+      margin-top: 7px;
+      color: var(--ink-soft);
+      font-weight: 650;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: max(8px, env(safe-area-inset-top));
+      z-index: 30;
+      margin: 18px 0;
+      padding: 12px;
+      border-radius: 24px;
+      display: grid;
+      gap: 10px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 12px 38px rgba(31, 41, 55, .12);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .tab {
+      min-height: 56px;
+      border: 0;
+      border-radius: 18px;
+      padding: .72rem .72rem;
+      cursor: pointer;
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(255,255,255,.8);
+      box-shadow: 0 8px 20px rgba(31,41,55,.08);
+      font-weight: 900;
+      text-align: left;
+      display: grid;
+      gap: 2px;
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), background .18s var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tab .tab-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: .96rem;
+    }
+
+    .tab small {
+      color: var(--muted);
+      font-size: .74rem;
+      font-weight: 850;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .tab[aria-selected="true"] {
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--orange));
+      border-color: rgba(255,255,255,.68);
+      box-shadow: 0 16px 36px rgba(255, 79, 134, .30);
+    }
+
+    .tab[aria-selected="true"] small { color: rgba(255,255,255,.88); }
+
+    .quick-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill-button {
+      min-height: 48px;
+      border: 0;
+      border-radius: 999px;
+      padding: .78rem 1rem;
+      cursor: pointer;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 8px 20px rgba(31,41,55,.08);
+      font-weight: 900;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pill-button.primary {
+      background: linear-gradient(135deg, #1aa6c0, #3cd69b);
+      color: white;
+      border-color: rgba(255,255,255,.68);
+    }
+
+    .micro-note {
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 750;
+    }
+
+    main { display: grid; gap: 22px; }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      padding: clamp(18px, 3vw, 26px);
+    }
+
+    .panel h2, .day-title h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1;
+      letter-spacing: -.04em;
+      font-size: clamp(1.6rem, 3.4vw, 2.45rem);
+    }
+
+    .panel p { color: var(--ink-soft); font-weight: 650; }
+
+    .route-cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .route-card {
+      position: relative;
+      min-height: 158px;
+      overflow: hidden;
+      border-radius: 22px;
+      padding: 16px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 10px 26px rgba(31,41,55,.08);
+    }
+
+    .route-card::after {
+      content: attr(data-num);
+      position: absolute;
+      right: -6px;
+      bottom: -28px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(255,79,134,.12);
+      line-height: 1;
+    }
+
+    .route-card strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.12;
+      margin-bottom: 8px;
+    }
+
+    .route-card span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: .86rem;
+      font-weight: 680;
+      line-height: 1.3;
+    }
+
+    .strategy-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .strategy-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.78);
+    }
+
+    .bubble {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--orange));
+      box-shadow: 0 10px 20px rgba(255, 79, 134, .22);
+      font-size: 1.2rem;
+    }
+
+    .strategy-item strong { display: block; margin-bottom: 2px; }
+    .strategy-item span { color: var(--ink-soft); font-weight: 650; }
+
+    .day-panel {
+      border-radius: 34px;
+      padding: clamp(16px, 2.5vw, 24px);
+      scroll-margin-top: 132px;
+    }
+
+    .js-enabled .day-panel[hidden] { display: none !important; }
+
+    .day-panel + .day-panel { margin-top: 22px; }
+
+    .day-hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .day-title {
+      border-radius: 26px;
+      padding: clamp(18px, 3vw, 28px);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.78), rgba(255,255,255,.46)),
+        radial-gradient(circle at 90% 0%, rgba(255, 207, 92, .32), transparent 14rem);
+      border: 1px solid rgba(255,255,255,.84);
+      box-shadow: 0 12px 32px rgba(31,41,55,.08);
+    }
+
+    .day-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      padding: .35rem .64rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.82);
+      color: var(--ink-soft);
+      font-weight: 900;
+      font-size: .78rem;
+      letter-spacing: .02em;
+    }
+
+    .badge.hot { color: #8a2b47; background: rgba(255, 214, 226, .72); }
+    .badge.cool { color: #075c69; background: rgba(217, 250, 255, .72); }
+    .badge.good { color: #05603a; background: rgba(218, 255, 238, .76); }
+    .badge.warn { color: #8a4b00; background: rgba(255, 240, 198, .82); }
+
+    .day-title p {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .day-score {
+      min-width: 245px;
+      border-radius: 26px;
+      padding: 18px;
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(255,79,134,.9), rgba(255,138,76,.88));
+      color: white;
+      box-shadow: 0 18px 40px rgba(255,79,134,.24);
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(255,255,255,.25);
+      padding-bottom: 10px;
+    }
+
+    .score-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .score-row span { color: rgba(255,255,255,.82); font-size: .82rem; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }
+    .score-row strong { font-size: 1.04rem; text-align: right; }
+
+    .day-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+
+    .activity-card {
+      position: relative;
+      border-radius: 25px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 12px 30px rgba(31,41,55,.09);
+      overflow: hidden;
+    }
+
+    .activity-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--rose), var(--orange), var(--aqua));
+      opacity: .92;
+    }
+
+    .activity-card summary {
+      list-style: none;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 76px;
+      padding: 16px 16px 16px 22px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .activity-card summary::-webkit-details-marker { display: none; }
+
+    .timebox {
+      border-radius: 18px;
+      padding: 11px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.9);
+      display: grid;
+      gap: 3px;
+      text-align: center;
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.3);
+    }
+
+    .timebox strong { font-size: 1rem; line-height: 1.05; }
+    .timebox span { color: var(--muted); font-weight: 850; font-size: .73rem; }
+
+    .activity-main { min-width: 0; }
+
+    .activity-main h3 {
+      margin: 2px 0 4px;
+      font-size: clamp(1.05rem, 2.2vw, 1.32rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .activity-main p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-weight: 650;
+      font-size: .95rem;
+    }
+
+    .activity-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: .24rem .52rem;
+      border-radius: 999px;
+      color: #8a2b47;
+      background: rgba(255, 226, 235, .86);
+      font-size: .72rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .chevron {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.82);
+      font-weight: 950;
+      transition: transform .2s var(--ease), background .2s var(--ease);
+    }
+
+    .activity-card[open] .chevron { transform: rotate(45deg); background: rgba(255, 207, 92, .74); }
+
+    .accordion-grid {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .34s var(--ease);
+    }
+
+    .activity-card[open] .accordion-grid { grid-template-rows: 1fr; }
+
+    .accordion-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .detail-wrap {
+      padding: 0 16px 18px 22px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .detail-card {
+      border-radius: 18px;
+      padding: 14px;
+      background: rgba(255,255,255,.58);
+      border: 1px solid rgba(255,255,255,.72);
+    }
+
+    .detail-card.full { grid-column: 1 / -1; }
+    .detail-card h4 {
+      margin: 0 0 6px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .detail-card p, .detail-card ul { margin: 0; color: var(--ink-soft); font-weight: 650; }
+    .detail-card ul { padding-left: 1.05rem; }
+    .detail-card li + li { margin-top: 5px; }
+
+    .address-line {
+      display: block;
+      margin-top: 4px;
+      padding: .62rem .68rem;
+      border-radius: 13px;
+      background: rgba(255,255,255,.72);
+      border: 1px dashed rgba(23,32,51,.18);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #263247;
+      font-weight: 750;
+      font-size: .86rem;
+      overflow-wrap: anywhere;
+    }
+
+    .map-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .mini-link,
+    .copy-btn {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: .55rem .78rem;
+      border: 0;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 6px 14px rgba(31,41,55,.06);
+      color: var(--ink);
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .mini-link.accent { background: linear-gradient(135deg, rgba(255,79,134,.92), rgba(255,138,76,.92)); color: white; }
+
+    .side-stack {
+      display: grid;
+      gap: 14px;
+      position: sticky;
+      top: 156px;
+    }
+
+    .side-card {
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 12px 30px rgba(31,41,55,.08);
+    }
+
+    .side-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: -.02em;
+    }
+
+    .side-card p, .side-card li { color: var(--ink-soft); font-weight: 650; }
+    .side-card p { margin: 0; }
+    .side-card ul { margin: 8px 0 0; padding-left: 1.1rem; }
+
+    .weather-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(40,198,215,.14), rgba(255,207,92,.18));
+      border: 1px solid rgba(255,255,255,.82);
+      margin-top: 12px;
+    }
+
+    .weather-chip strong { display: block; }
+    .weather-chip span { color: var(--muted); font-weight: 850; font-size: .82rem; }
+
+    .footer {
+      margin-top: 22px;
+      border-radius: 28px;
+      padding: 22px;
+      text-align: center;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .footer strong { color: var(--ink); }
+
+    @media (hover: hover) {
+      .tab:hover,
+      .pill-button:hover,
+      .mini-link:hover,
+      .copy-btn:hover,
+      .activity-card summary:hover {
+        transform: translateY(-2px);
+      }
+
+      .tab:hover,
+      .pill-button:hover,
+      .mini-link:hover,
+      .copy-btn:hover {
+        box-shadow: 0 14px 30px rgba(31,41,55,.14);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid, .route-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .dashboard-grid, .day-body, .day-hero { grid-template-columns: 1fr; }
+      .day-score { min-width: 0; }
+      .side-stack { position: static; }
+      .toolbar { top: 0; }
+    }
+
+    @media (max-width: 720px) {
+      .app-shell { width: min(100% - 18px, var(--max)); padding-top: 10px; }
+      .hero { border-radius: 26px; min-height: auto; }
+      .hero-grid, .route-cards { grid-template-columns: 1fr; }
+      .toolbar {
+        position: static;
+        border-radius: 20px;
+        padding: 10px;
+      }
+      .tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .tab {
+        min-height: 84px;
+        padding: .72rem .72rem;
+      }
+      .tab .tab-top { font-size: .98rem; }
+      .tab small {
+        font-size: .72rem;
+        line-height: 1.16;
+      }
+      .quick-actions {
+        align-items: stretch;
+        gap: 8px;
+      }
+      .action-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .pill-button {
+        min-height: 52px;
+        padding: .72rem .68rem;
+        font-size: .92rem;
+      }
+      .pill-button.primary { grid-column: 1 / -1; }
+      .micro-note {
+        width: 100%;
+        text-align: center;
+        font-size: .78rem;
+        line-height: 1.35;
+      }
+      .day-panel {
+        border-radius: 24px;
+        padding: 12px;
+        scroll-margin-top: 16px;
+      }
+      .activity-card { border-radius: 22px; }
+      .activity-card summary {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        min-height: 74px;
+        padding: 14px 12px 14px 18px;
+      }
+      .timebox {
+        grid-column: 1 / -1;
+        grid-template-columns: auto auto 1fr;
+        text-align: left;
+        align-items: center;
+      }
+      .timebox span { text-align: right; }
+      .detail-wrap { padding: 0 12px 14px 18px; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .day-title { border-radius: 22px; }
+      .side-card { border-radius: 20px; }
+      .hero::after { font-size: 5.6rem; right: -1.2rem; bottom: -2.4rem; }
+    }
+
+    @media (max-width: 420px) {
+      .hero-stat { min-height: auto; }
+      .tab { min-height: 78px; }
+      .pill-button {
+        font-size: .86rem;
+        padding: .7rem .5rem;
+      }
+      .chevron { width: 40px; height: 40px; }
+      .score-row { align-items: flex-start; flex-direction: column; gap: 3px; }
+      .score-row strong { text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+
+    @media print {
+      body { background: white !important; }
+      body::before, body::after, .toolbar, .quick-actions { display: none !important; }
+      .app-shell { width: 100%; padding: 0; }
+      .glass, .hero-stat, .route-card, .strategy-item, .activity-card, .side-card, .day-title, .day-score {
+        box-shadow: none !important;
+        background: white !important;
+        border: 1px solid #d5d7dd !important;
+        color: #111827 !important;
+      }
+      .hero, .day-panel { page-break-inside: avoid; border: 1px solid #d5d7dd !important; }
+      .day-panel[hidden] { display: block !important; }
+      .day-body, .day-hero, .dashboard-grid { grid-template-columns: 1fr !important; }
+      .side-stack { position: static !important; }
+      .accordion-grid { grid-template-rows: 1fr !important; }
+      .chevron { display: none !important; }
+      a { text-decoration: none; }
+    }
+  
+
+    .route-preference {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(255,255,255,.82);
+      box-shadow: 0 8px 20px rgba(31,41,55,.08);
+    }
+
+    .route-preference-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .route-preference-copy strong {
+      display: block;
+      font-size: .96rem;
+      line-height: 1.15;
+    }
+
+    .route-preference-copy span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+
+    .route-mode-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: .42rem .66rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.82);
+      font-weight: 900;
+      font-size: .8rem;
+      color: var(--ink-soft);
+    }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .mode-btn {
+      min-height: 48px;
+      border: 0;
+      border-radius: 16px;
+      padding: .55rem .35rem;
+      cursor: pointer;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(255,255,255,.84);
+      box-shadow: 0 8px 18px rgba(31,41,55,.08);
+      font-weight: 900;
+      display: grid;
+      place-items: center;
+      gap: 1px;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mode-btn small {
+      color: var(--muted);
+      font-size: .71rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .mode-btn[aria-pressed="true"] {
+      color: white;
+      background: linear-gradient(135deg, #1aa6c0, #3cd69b);
+      box-shadow: 0 14px 30px rgba(26,166,192,.22);
+    }
+
+    .mode-btn[aria-pressed="true"] small { color: rgba(255,255,255,.88); }
+
+    .route-preview {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .route-preview-label,
+    .route-preview-value,
+    .route-preview-distance {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border-radius: 999px;
+      padding: .28rem .58rem;
+      border: 1px solid rgba(255,255,255,.84);
+      background: rgba(255,255,255,.76);
+      font-size: .76rem;
+      font-weight: 850;
+    }
+
+    .route-preview-label {
+      color: #8a2b47;
+      background: rgba(255, 226, 235, .88);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .route-preview-value {
+      color: var(--ink-soft);
+      max-width: 100%;
+    }
+
+    .route-preview-distance {
+      color: var(--muted);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    .transfer-card {
+      display: grid;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.54));
+    }
+
+    .transfer-card .transfer-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .transfer-card .transfer-head h4 {
+      margin: 0 0 4px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .transfer-card .transfer-head p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .selected-mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 30px;
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      background: rgba(217, 250, 255, .82);
+      border: 1px solid rgba(255,255,255,.84);
+      color: #075c69;
+      font-size: .76rem;
+      font-weight: 950;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .selected-mode-badge.neutral {
+      background: rgba(255,255,255,.78);
+      color: var(--muted);
+    }
+
+    .inline-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .fact-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: .34rem .6rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.84);
+      color: var(--ink-soft);
+      font-size: .77rem;
+      font-weight: 850;
+    }
+
+    .mode-matrix {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .mode-box {
+      border-radius: 16px;
+      padding: 12px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,255,255,.84);
+      display: grid;
+      gap: 4px;
+      align-content: start;
+      min-height: 100px;
+    }
+
+    .mode-box.is-active {
+      background: linear-gradient(135deg, rgba(40,198,215,.16), rgba(60,214,155,.20));
+      border-color: rgba(26,166,192,.38);
+      box-shadow: inset 0 0 0 1px rgba(26,166,192,.18);
+    }
+
+    .mode-box span {
+      color: var(--muted);
+      font-size: .72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .mode-box strong {
+      font-size: .98rem;
+      line-height: 1.15;
+    }
+
+    .mode-box small {
+      color: var(--ink-soft);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .route-note {
+      margin: 0;
+      color: var(--ink-soft);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .map-app-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .map-app-link {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 999px;
+      padding: .58rem .78rem;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.84);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 8px 16px rgba(31,41,55,.06);
+      font-weight: 900;
+    }
+
+    .map-app-link.apple {
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,226,235,.88));
+    }
+
+    .map-app-link.google {
+      background: linear-gradient(135deg, rgba(217,250,255,.84), rgba(255,255,255,.90));
+    }
+
+    .map-helper {
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 750;
+    }
+
+    @media (max-width: 720px) {
+      .route-preference { border-radius: 18px; padding: 12px; }
+      .mode-btn { min-height: 54px; }
+      .route-preview-value { max-width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      .map-app-row { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#itinerary">Skip to itinerary</a>
+<div class="app-shell">
+<header class="hero glass" id="top">
+<div class="eyebrow">🌸 Mobile-first Tokyo family dashboard</div>
+<h1><span class="gradient-text">Tokyo</span> Itinerary Vault</h1>
+<p class="hero-lede">A bright, glassmorphism, single-file dashboard for June 7-10, 2026. The routing clusters Ginza, the western neighborhoods, the eastern skyline, and the Narita departure path to reduce backtracking and protect energy for a multi-generational travel party.</p>
+<section aria-label="Trip summary" class="hero-grid">
+<div class="hero-stat">
+<span>Dates</span>
+<strong>Sun Jun 7 - Wed Jun 10, 2026</strong>
+<small>4 calendar days / 3 hotel nights</small>
+</div>
+<div class="hero-stat">
+<span>Airport</span>
+<strong>Narita Terminal 2</strong>
+<small>Arrive 12:25 PM / Depart 1:45 PM</small>
+</div>
+<div class="hero-stat">
+<span>Basecamp</span>
+<strong>Sotetsu Fresa Inn Ginza-Nanachome</strong>
+<small>Ginza, Shimbashi, Higashi-Ginza access</small>
+</div>
+<div class="hero-stat">
+<span>Pacing</span>
+<strong>Rest-first routing</strong>
+<small>Ride-hail backup, snack buffers, child reset points</small>
+</div>
+</section>
+</header>
+<nav aria-label="Day navigation" class="toolbar">
+<div aria-label="Itinerary days" class="tabs" role="tablist">
+<button aria-selected="true" class="tab" data-day-tab="" data-target="day1" role="tab" type="button">
+<span class="tab-top">Day 1 <span>🛬</span></span>
+<small>Arrival + Ginza</small>
+</button>
+<button aria-selected="false" class="tab" data-day-tab="" data-target="day2" role="tab" type="button">
+<span class="tab-top">Day 2 <span>⛩️</span></span>
+<small>Meiji + Shibuya + Shinjuku</small>
+</button>
+<button aria-selected="false" class="tab" data-day-tab="" data-target="day3" role="tab" type="button">
+<span class="tab-top">Day 3 <span>🌃</span></span>
+<small>Skytree + Asakusa + teamLab</small>
+</button>
+<button aria-selected="false" class="tab" data-day-tab="" data-target="day4" role="tab" type="button">
+<span class="tab-top">Day 4 <span>🍣</span></span>
+<small>Tsukiji + NRT extraction</small>
+</button>
+</div>
+<div aria-label="Route mode preference" class="route-preference">
+<div class="route-preference-head">
+<div class="route-preference-copy">
+<strong>Route planner mode</strong>
+<span>Choose how every leg should open in maps: walk, train, or ride-hail / taxi.</span>
+</div>
+<div class="route-mode-chip">Maps: <strong data-global-mode-label="">Train</strong></div>
+</div>
+<div aria-label="Preferred route mode" class="mode-switch" role="group">
+<button aria-pressed="false" class="mode-btn" data-route-mode="walk" type="button">🚶 Walk<small>street pace</small></button>
+<button aria-pressed="true" class="mode-btn" data-route-mode="transit" type="button">🚆 Train<small>default</small></button>
+<button aria-pressed="false" class="mode-btn" data-route-mode="ride" type="button">🚕 Ride-hail<small>Uber / taxi</small></button>
+</div>
+</div>
+<div class="quick-actions">
+<div class="action-group">
+<button class="pill-button primary" data-action="print" type="button">Print / Save PDF</button>
+<button class="pill-button" data-action="open-all" type="button">Open all details</button>
+<button class="pill-button" data-action="close-all" type="button">Close all details</button>
+</div>
+<div class="micro-note">Each stop now shows stay duration plus route distance, walk/train/ride-hail timing, and Apple/Google Maps links. Road mode is for Uber or taxi, not self-drive.</div>
+</div>
+</nav>
+<main id="itinerary">
+<section aria-label="Day 1 Arrival and Ginza" class="day-panel glass" data-day-panel="" id="day1" role="tabpanel">
+<div class="day-hero">
+<div class="day-title">
+<div class="day-kicker">
+<span class="badge hot">Sunday</span>
+<span class="badge">June 7, 2026</span>
+<span class="badge cool">Arrival buffer</span>
+<span class="badge good">Low-transfer evening</span>
+</div>
+<h2>Day 1: Arrival + Ginza soft landing</h2>
+<p>Protect the first day from over-scheduling. The goal is to clear the airport calmly, reach Ginza with luggage under control, reset at the hotel, then enjoy a short, high-reward neighborhood walk.</p>
+</div>
+<div aria-label="Day 1 quick stats" class="day-score">
+<div class="score-row"><span>Start</span><strong>NRT T2 at 12:25 PM</strong></div>
+<div class="score-row"><span>Walking load</span><strong>Light to moderate</strong></div>
+<div class="score-row"><span>Backup</span><strong>Taxi from Tokyo Station</strong></div>
+</div>
+</div>
+<div class="day-body">
+<div class="timeline">
+<details class="activity-card" open="">
+<summary>
+<div class="timebox"><strong>12:25 PM</strong><strong>1:35 PM</strong><span>1h 10m</span></div>
+<div class="activity-main"><span class="activity-tag">Arrival</span><h3>Touchdown, immigration, baggage, regroup</h3><p>Arrive at Narita Terminal 2 and move slowly through formalities with a built-in buffer.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Trip start at Narita Terminal 2</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Narita International Airport Terminal 2</p><code class="address-line">1-1 Furugome, Narita, Chiba 282-0004, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Narita+Airport+Terminal+2" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Narita International Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p><strong>Trip start at Narita Terminal 2</strong></p>
+</div>
+<span class="selected-mode-badge neutral">Start here</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Travel distance: trip start</span>
+<span class="fact-pill">No map link needed yet</span>
+</div>
+<p class="route-note">This block begins the trip. Stay in-terminal, hydrate, and regroup before moving down to the rail level.</p>
+</div>
+<div class="detail-card"><h4>Logistics</h4><ul><li>Use this time for restrooms, cash, pocket Wi-Fi/SIM, and IC card top-up.</li><li>Keep passports accessible for the JR East ticket counter.</li><li>Do not rush for a specific train if bags or the child need a reset.</li></ul></div>
+<div class="detail-card"><h4>Pit stop</h4><p>Terminal 2 has airport seating, convenience stores, elevators, and luggage-friendly corridors. Assign one adult to tickets and one to child/restroom duty.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>1:35 PM</strong><strong>2:05 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Tickets</span><h3>Buy or collect N'EX Tokyo Round Trip tickets</h3><p>Lock in reserved seats for both the inbound ride and the departure-day return.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~8 min walk</span><span class="route-preview-distance">~0.4 km in-terminal</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Where to handle it</h4><p>JR EAST Travel Service Center / JR ticket office at Narita Airport Terminal 2-3 Station.</p><code class="address-line">Narita Airport Terminal 2-3 Station, B1F, Terminal 2</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=JR+EAST+Travel+Service+Center+Narita+Airport+Terminal+2+3" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="JR EAST Travel Service Center, Narita Airport Terminal 2-3 Station, B1F, Terminal 2" type="button">Copy location</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Narita Terminal 2 arrivals</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.4 km in-terminal</span>
+<span class="fact-pill">Fastest family move usually: ~8 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~8 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Follow the rail signs down to B1. Elevators keep this manageable even with luggage and a child.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="JR EAST Travel Service Center Narita Airport Terminal 2-3 Station, B1F, Terminal 2, Narita, Chiba, Japan" data-map-app="apple" data-origin="Narita International Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="JR EAST Travel Service Center Narita Airport Terminal 2-3 Station, B1F, Terminal 2, Narita, Chiba, Japan" data-map-app="google" data-origin="Narita International Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Cost note</h4><p>N'EX Tokyo Round Trip Ticket planning estimate: adult 5,200 yen, child 2,600 yen for eligible non-Japanese passport holders. Verify again before travel.</p></div>
+<div class="detail-card"><h4>Smart move</h4><p>Reserve the Wednesday return train now. That removes decision fatigue on departure morning and gives everyone an assigned seat.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>2:10 PM</strong><strong>3:15 PM</strong><span>1h 05m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Narita Express to Tokyo Station</h3><p>Direct rail transfer into central Tokyo with luggage space and reserved seats.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~55-65 min N'EX</span><span class="route-preview-distance">~63 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Route</h4><p>Narita Airport Terminal 2-3 Station to Tokyo Station on JR Narita Express. Exact departure depends on immigration and baggage timing.</p><code class="address-line">Narita Airport Terminal 2-3 Station → Tokyo Station</code></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Narita Airport Terminal 2-3 Station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~63 km route</span>
+<span class="fact-pill">Fastest family move usually: ~55-65 min N'EX</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>Too far on foot</strong>
+<small>Not practical for this itinerary block.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~55-65 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~75-95 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Reserved-seat Narita Express remains the cleanest luggage move into central Tokyo.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tokyo Station, Chiyoda City, Tokyo, Japan" data-map-app="apple" data-origin="Narita Airport Terminal 2-3 Station, Narita, Chiba, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tokyo Station, Chiyoda City, Tokyo, Japan" data-map-app="google" data-origin="Narita Airport Terminal 2-3 Station, Narita, Chiba, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why this works</h4><p>The train avoids traffic, gives the older travelers a seated hour, and keeps bags in one predictable place.</p></div>
+<div class="detail-card"><h4>Arrival cue</h4><p>At Tokyo Station, resist complex subway transfers with bags. A short taxi to the hotel is the preferred family move.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>3:15 PM</strong><strong>3:45 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Transfer</span><h3>Tokyo Station to Sotetsu Fresa Inn Ginza-Nanachome</h3><p>Use a taxi if luggage, heat, or jet lag are already showing.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~15-20 min taxi</span><span class="route-preview-distance">~4.3 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Basecamp address</h4><p>Sotetsu Fresa Inn Ginza-Nanachome</p><code class="address-line">7-11-12 Ginza, Chuo-ku, Tokyo 104-0061, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Sotetsu+Fresa+Inn+Ginza+Nanachome" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo-ku, Tokyo 104-0061, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Tokyo Station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~4.3 km route</span>
+<span class="fact-pill">Fastest family move usually: ~15-20 min taxi</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~55 min with bags</strong>
+<small>Possible, but luggage makes this feel longer.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~20-25 min transit</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~15-20 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Taxi usually wins on comfort here. Subway only beats it if everyone is fresh and bags are light.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Tokyo Station, Chiyoda City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Tokyo Station, Chiyoda City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Taxi script</h4><p>Show the hotel name and address. Ask for Ginza 7-chome / Sotetsu Fresa Inn Ginza-Nanachome.</p></div>
+<div class="detail-card"><h4>Subway alternative</h4><p>Taxi is easiest with luggage. If traveling light, Tokyo Metro connections to Ginza/Higashi-Ginza are possible but involve station walking.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>3:45 PM</strong><strong>5:00 PM</strong><span>1h 15m</span></div>
+<div class="activity-main"><span class="activity-tag">Reset</span><h3>Check in, showers, charge phones, hotel decompression</h3><p>The highest-value activity after a long flight is doing less.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Already at the hotel</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Checklist</h4><ul><li>Charge battery packs and pocket Wi-Fi.</li><li>Top up IC cards if needed.</li><li>Lay out rain layer, compact towel, and child snack bag.</li></ul></div>
+<div class="detail-card"><h4>Recovery target</h4><p>Everyone should be restroom-ready, hydrated, and carrying only a small day bag before leaving for Ginza.</p></div>
+<div class="detail-card full"><h4>Do not skip</h4><p>This block protects Days 2 and 3. If arrival is delayed, compress Ginza rather than cutting rest.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p><strong>Already at the hotel</strong></p>
+</div>
+<span class="selected-mode-badge neutral">No transfer</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Travel distance: already on site</span>
+<span class="fact-pill">Map mode not needed for this block</span>
+</div>
+<p class="route-note">No transfer needed. This is the recovery block that keeps the rest of the trip feeling good.</p>
+</div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>5:00 PM</strong><strong>6:00 PM</strong><span>1h</span></div>
+<div class="activity-main"><span class="activity-tag">Ginza</span><h3>Chuo-dori Pedestrian Paradise walk</h3><p>A wide, car-free first Tokyo moment through Ginza's main boulevard, weather and event status permitting.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~8 min walk</span><span class="route-preview-distance">~0.6 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Area</h4><p>Ginza-dori / Chuo-dori between Ginza 1-chome and 8-chome.</p><code class="address-line">Chuo-dori, Ginza, Chuo-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Chuo-dori+Ginza+Tokyo" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Chuo-dori, Ginza, Chuo-ku, Tokyo" type="button">Copy area</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Sotetsu Fresa Inn Ginza-Nanachome</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.6 km</span>
+<span class="fact-pill">Fastest family move usually: ~8 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~8 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>Not worth a train</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~5 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">This is one of the easiest legs of the trip. Walking is the best version unless weather turns.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Chuo Dori Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Chuo Dori Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Ginza's weekend pedestrian zone gives the family an open, low-stress introduction to Tokyo street life without fighting traffic at every crossing.</p></div>
+<div class="detail-card"><h4>Timing warning</h4><p>June weekend/holiday pedestrian hours are typically midday to 6:00 PM. If you arrive late, pivot directly to GINZA SIX.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>6:00 PM</strong><strong>7:30 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Dessert</span><h3>GINZA SIX + Nakamura Tokichi matcha stop</h3><p>Indoor rest, bathrooms, elevators, rooftop garden option, and a Kyoto tea-dessert anchor.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~7 min walk</span><span class="route-preview-distance">~0.5 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>GINZA SIX / Nakamura Tokichi Ginza Store</p><code class="address-line">GINZA SIX 4F, 6-10-1 Ginza, Chuo-ku, Tokyo 104-0061, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Nakamura+Tokichi+GINZA+SIX" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Nakamura Tokichi Ginza Store, GINZA SIX 4F, 6-10-1 Ginza, Chuo-ku, Tokyo 104-0061, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Chuo-dori Ginza stroll</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.5 km</span>
+<span class="fact-pill">Fastest family move usually: ~7 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~7 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>Not worth a train</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~5 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Use the indoor mall route if rain shows up or the child needs a quicker bathroom stop.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="GINZA SIX, 6-10-1 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Chuo Dori Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="GINZA SIX, 6-10-1 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Chuo Dori Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Nakamura Tokichi is a Uji tea specialist known for refined matcha and tea sweets; GINZA SIX gives a premium but comfortable indoor landing pad.</p></div>
+<div class="detail-card"><h4>Operational note</h4><p>Reservations are not accepted for the cafe. Reception can close early when congested, so treat this as a target, not a guarantee.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>7:30 PM</strong><strong>9:00 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Dinner</span><h3>Easy Ginza dinner or convenience-store picnic</h3><p>End early. The next two days carry the headline attractions.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~5-10 min walk</span><span class="route-preview-distance">~0.4 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Best dinner style</h4><p>Pick something within a 10-minute walk of the hotel. Department-store food halls, casual ramen, family restaurants, or takeout are all valid.</p></div>
+<div class="detail-card"><h4>Tomorrow prep</h4><p>Pack shrine-friendly walking shoes, sun protection, water, and a compact layer for Shibuya Sky wind.</p></div>
+<div class="detail-card full"><h4>Hard stop</h4><p>Back in rooms by 9:00 PM is not wasted time; it is the reason Day 2 works.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>GINZA SIX</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.4 km</span>
+<span class="fact-pill">Fastest family move usually: ~5-10 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~5-10 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>Not worth a train</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~5 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Keep the final meal close to the hotel and avoid an unnecessary last transfer.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="GINZA SIX, 6-10-1 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="GINZA SIX, 6-10-1 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+</div></div></div></div>
+</details>
+</div>
+<aside aria-label="Day 1 side notes" class="side-stack">
+<div class="side-card"><h3>Day 1 priority</h3><p>Get everyone to the hotel calmly. The evening is a bonus lap, not a required achievement.</p></div>
+<div class="side-card"><h3>Transit pass note</h3><p>Buy or recharge IC cards at the airport if the line is short. Otherwise, handle it later in Ginza.</p></div>
+<div class="side-card"><h3>Kill switch</h3><p>If arrival is delayed past 3:30 PM, skip Pedestrian Paradise and do only hotel reset plus nearby dinner.</p></div>
+</aside>
+</div>
+</section>
+<section aria-label="Day 2 Meiji Jingu Shibuya Shinjuku" class="day-panel glass" data-day-panel="" id="day2" role="tabpanel">
+<div class="day-hero">
+<div class="day-title">
+<div class="day-kicker">
+<span class="badge hot">Monday</span>
+<span class="badge">June 8, 2026</span>
+<span class="badge cool">Western sector</span>
+<span class="badge warn">Book Shibuya Sky</span>
+</div>
+<h2>Day 2: Meiji Jingu, Shibuya, Shinjuku</h2>
+<p>Start with shade and quiet, move into youth culture and city spectacle, then finish with either sunset Shibuya Sky or a shorter version if the group needs an early night.</p>
+</div>
+<div aria-label="Day 2 quick stats" class="day-score">
+<div class="score-row"><span>Start</span><strong>8:30 AM hotel</strong></div>
+<div class="score-row"><span>Walking load</span><strong>Moderate to high</strong></div>
+<div class="score-row"><span>Booking</span><strong>Shibuya Sky 5:30 PM target</strong></div>
+</div>
+</div>
+<div class="day-body">
+<div class="timeline">
+<details class="activity-card" open="">
+<summary>
+<div class="timebox"><strong>8:30 AM</strong><strong>9:15 AM</strong><span>45m</span></div>
+<div class="activity-main"><span class="activity-tag">Launch</span><h3>Breakfast, water, and west-side departure</h3><p>Leave after the commuter crush starts easing but before shrine crowds build.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Hotel launch point</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Hotel start</h4><p>Use the hotel lobby as the group check point: restroom, water, transit cards, sun hats, and compact towel.</p></div>
+<div class="detail-card"><h4>Suggested route</h4><p>Ginza / Higashi-Ginza area toward Meiji-jingumae, Harajuku, or Yoyogi depending on live train guidance.</p></div>
+<div class="detail-card full"><h4>Pacing cue</h4><p>Do not start this day hungry. Shibuya and Harajuku are more fun when nobody is already depleted.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p><strong>Hotel launch point</strong></p>
+</div>
+<span class="selected-mode-badge neutral">No transfer</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Travel distance: already on site</span>
+<span class="fact-pill">Map mode not needed for this block</span>
+</div>
+<p class="route-note">This is still an on-site start block. Eat, top up water, and leave only when the whole group is ready.</p>
+</div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>9:15 AM</strong><strong>11:15 AM</strong><span>2h</span></div>
+<div class="activity-main"><span class="activity-tag">Shrine</span><h3>Meiji Jingu forest walk and shrine visit</h3><p>A shaded, atmospheric start that gives the oldest and youngest travelers a gentler first full morning.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~30-40 min train</span><span class="route-preview-distance">~7.2 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Meiji Jingu</p><code class="address-line">1-1 Yoyogi Kamizono-cho, Shibuya-ku, Tokyo 151-8557, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Meiji+Jingu" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Meiji Jingu, 1-1 Yoyogi Kamizono-cho, Shibuya-ku, Tokyo 151-8557, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Hotel / Ginza</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~7.2 km route</span>
+<span class="fact-pill">Fastest family move usually: ~30-40 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~90 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~30-40 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~25-35 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Use the simplest live route to Meiji-jingumae, Harajuku, or Yoyogi instead of chasing the absolute fastest transfer.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Meiji Jingu, 1-1 Yoyogi Kamizonocho, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Meiji Jingu, 1-1 Yoyogi Kamizonocho, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Meiji Jingu was established in 1920 to enshrine Emperor Meiji and Empress Shoken and sits within a large forested precinct in the middle of Tokyo.</p></div>
+<div class="detail-card"><h4>Mobility note</h4><p>Paths are wide but can be gravelly. Keep the pace slow from the torii gate to the main shrine area.</p></div>
+<div class="detail-card full"><h4>Cost</h4><p>Shrine precinct: free. Museum or special garden areas, if chosen, may cost extra and should be treated as optional.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>11:15 AM</strong><strong>12:30 PM</strong><span>1h 15m</span></div>
+<div class="activity-main"><span class="activity-tag">Harajuku</span><h3>Takeshita Street peek + Omotesando breathing room</h3><p>Sample the energy, then escape to wider sidewalks before fatigue spikes.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~15 min walk</span><span class="route-preview-distance">~1.1 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Area</h4><p>Takeshita Street / Omotesando</p><code class="address-line">1 Chome Jingumae, Shibuya-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Takeshita+Street+Harajuku" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Takeshita Street, 1 Chome Jingumae, Shibuya-ku, Tokyo, Japan" type="button">Copy area</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Meiji Jingu</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~1.1 km</span>
+<span class="fact-pill">Fastest family move usually: ~15 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~15 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~10 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~7 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Walking out of the shrine forest into Harajuku gives the smoothest transition; cut toward Omotesando early if crowds feel too heavy.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Takeshita Street, 1 Chome Jingumae, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Meiji Jingu, 1-1 Yoyogi Kamizonocho, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Takeshita Street, 1 Chome Jingumae, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Meiji Jingu, 1-1 Yoyogi Kamizonocho, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Harajuku is a visible slice of youth fashion, character goods, crepes, and pop storefronts; Omotesando gives a calmer design-shopping contrast.</p></div>
+<div class="detail-card"><h4>Child strategy</h4><p>Set a 30-minute cap for Takeshita Street. It is narrow and crowded, so use it as a quick color hit rather than a long wander.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>12:30 PM</strong><strong>1:45 PM</strong><span>1h 15m</span></div>
+<div class="activity-main"><span class="activity-tag">Lunch</span><h3>Omotesando or Harajuku seated lunch</h3><p>This is the mandatory reset before entering Shibuya density.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~10 min walk</span><span class="route-preview-distance">~0.7 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Best format</h4><p>Choose a place with seats, bathrooms, and familiar backup options. Department-store or mall dining is ideal for multi-generational groups.</p></div>
+<div class="detail-card"><h4>Timing</h4><p>Do not let lunch drift past 1:45 PM if you are keeping the Shibuya Sky sunset plan.</p></div>
+<div class="detail-card full"><h4>Backup</h4><p>If the group looks tired here, cut Shinjuku later. Shibuya Sky has higher payoff than the 3D Cat if only one evening item survives.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Takeshita / Omotesando edge</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.7 km</span>
+<span class="fact-pill">Fastest family move usually: ~10 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~10 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>Not worth a train</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~5 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Choose the easiest seated lunch room, not the most famous queue.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Omotesando, Jingumae, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Takeshita Street, 1 Chome Jingumae, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Omotesando, Jingumae, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Takeshita Street, 1 Chome Jingumae, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>1:45 PM</strong><strong>3:15 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Shibuya</span><h3>Hachiko, Shibuya Crossing, Center Gai orientation</h3><p>Classic Tokyo sensory overload with a clear plan and a short viewing window.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~8-12 min train</span><span class="route-preview-distance">~1.6 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Area</h4><p>Shibuya Station, Hachiko Square, Scramble Crossing</p><code class="address-line">2 Chome Dogenzaka / Shibuya Station area, Shibuya-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Shibuya+Scramble+Crossing" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Shibuya Scramble Crossing, Shibuya-ku, Tokyo, Japan" type="button">Copy area</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Lunch stop</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~1.6 km</span>
+<span class="fact-pill">Fastest family move usually: ~8-12 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~20-25 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~8-12 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~8-10 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Walk if the weather is mild. Otherwise a one-stop train or short taxi protects energy for the skyline slot.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Shibuya Scramble Crossing, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Omotesando, Jingumae, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Shibuya Scramble Crossing, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Omotesando, Jingumae, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Shibuya Crossing is one of Tokyo's most recognizable urban scenes; Hachiko adds a simple landmark meet point and story anchor.</p></div>
+<div class="detail-card"><h4>Safety cue</h4><p>Hold hands at the crossing. Pick a regroup point before entering the crowd.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>3:15 PM</strong><strong>4:45 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Rest</span><h3>Shibuya indoor buffer: Scramble Square, PARCO, or Miyashita Park</h3><p>Use this as a weather shield and restroom block before the ticketed observation deck.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~5 min walk</span><span class="route-preview-distance">~0.3 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Options</h4><ul><li>Shibuya Scramble Square: easiest for Shibuya Sky staging.</li><li>PARCO: Nintendo, Pokemon, character goods.</li><li>Miyashita Park: open-air but less vertical chaos.</li></ul></div>
+<div class="detail-card"><h4>Pacing goal</h4><p>Sit down by 4:15 PM. Sunset observation decks are less fun if everyone arrives overheated and rushed.</p></div>
+<div class="detail-card full"><h4>Bag warning</h4><p>Shibuya Sky has strict rooftop carry-in rules. Keep bags minimal and expect lockers/security at the entrance process.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Shibuya Crossing</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.3 km</span>
+<span class="fact-pill">Fastest family move usually: ~5 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~5 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Stay inside the immediate station area so bathrooms, seats, and the ticketed deck are all within quick reach.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Shibuya Scramble Crossing, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Shibuya Scramble Crossing, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>4:45 PM</strong><strong>5:25 PM</strong><span>40m</span></div>
+<div class="activity-main"><span class="activity-tag">Food</span><h3>Early dinner snack near Shibuya Scramble Square</h3><p>Eat before the observation deck so nobody melts down in the ticket queue.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~3-5 min walk</span><span class="route-preview-distance">~0.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Indoor buffer zone</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~3-5 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~3-5 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Keep dinner in the same building cluster so the ticket slot stays safe.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Best format</h4><p>Quick noodles, bakery, onigiri, fruit, or department-store food. Keep it clean and fast.</p></div>
+<div class="detail-card"><h4>Timing</h4><p>Be at the Shibuya Sky entrance process before the assigned slot. Late arrivals can be denied.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>5:30 PM</strong><strong>7:00 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Ticketed</span><h3>SHIBUYA SKY sunset slot</h3><p>Book the evening ticket window for the rooftop view, but check weather because the outdoor deck can close.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~3 min walk</span><span class="route-preview-distance">Same building</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>SHIBUYA SKY at Shibuya Scramble Square</p><code class="address-line">Shibuya Scramble Square 14F entrance, 2-24-12 Shibuya, Shibuya-ku, Tokyo 150-0002, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=SHIBUYA+SKY+Shibuya+Scramble+Square" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="SHIBUYA SKY, Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya-ku, Tokyo 150-0002, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Dinner / station buffer</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: Same building</span>
+<span class="fact-pill">Fastest family move usually: ~3 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~3 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">The easiest version is dinner and SHIBUYA SKY entry inside Shibuya Scramble Square.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="SHIBUYA SKY, Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="apple" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="SHIBUYA SKY, Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" data-map-app="google" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>This is the big western Tokyo skyline payoff: open-air rooftop, scramble views, and golden-hour city scale from about 230 meters up.</p></div>
+<div class="detail-card"><h4>Cost note</h4><p>Planning estimate: adult online tickets are higher after 3:00 PM than daytime. Book as soon as the travel date opens.</p></div>
+<div class="detail-card full"><h4>Accessibility note</h4><p>Rooftop wind and stairs/escalators can be challenging. Ask staff for elevator routing if needed and keep the child close in darker areas.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>7:00 PM</strong><strong>7:30 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Shibuya to Shinjuku East Exit</h3><p>Short JR Yamanote hop or taxi if the group is tired.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~12-18 min train</span><span class="route-preview-distance">~4.0 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Shibuya Scramble Square</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~4.0 km route</span>
+<span class="fact-pill">Fastest family move usually: ~12-18 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~50-55 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~12-18 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~15-25 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">JR Yamanote is the cleanest rail move. Taxi is perfectly acceptable if the group is fading.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" data-map-app="apple" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" data-map-app="google" data-origin="Shibuya Scramble Square, 2-24-12 Shibuya, Shibuya City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Train</h4><p>JR Yamanote Line from Shibuya to Shinjuku is usually the simplest rail move.</p></div>
+<div class="detail-card"><h4>Taxi switch</h4><p>If station crowds feel too much after Shibuya Sky, take a taxi directly to the hotel and skip Shinjuku.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>7:30 PM</strong><strong>8:00 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Shinjuku</span><h3>Cross Shinjuku Vision: giant 3D Cat</h3><p>A quick, free, high-wow stop at the East Exit before calling the day.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~3 min walk</span><span class="route-preview-distance">~0.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Cross Shinjuku Vision / Shinjuku East Exit Cat</p><code class="address-line">3-23-18 Shinjuku, Shinjuku-ku, Tokyo 160-0022, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Cross+Shinjuku+Vision" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku-ku, Tokyo 160-0022, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Shinjuku East Exit</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~3 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~3 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">This is just a plaza hop once you arrive on the East Exit side.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" data-map-app="apple" data-origin="Shinjuku Station East Exit, Shinjuku City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" data-map-app="google" data-origin="Shinjuku Station East Exit, Shinjuku City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>The curved LED billboard became famous for a giant anamorphic calico cat that appears to pop out over Shinjuku Station's East Exit.</p></div>
+<div class="detail-card"><h4>Viewing cue</h4><p>Stand in the East Exit plaza across from the screen and wait through advertisements. Keep the stop short.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>8:00 PM</strong><strong>8:45 PM</strong><span>45m</span></div>
+<div class="activity-main"><span class="activity-tag">Return</span><h3>Return to Ginza and shut down</h3><p>Choose Marunouchi Line, JR + subway, or taxi based on energy.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~25-35 min train</span><span class="route-preview-distance">~8.3 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Train idea</h4><p>Shinjuku-sanchome or Shinjuku to Ginza area via Marunouchi Line is usually straightforward.</p></div>
+<div class="detail-card"><h4>Taxi idea</h4><p>Late-day taxi is a legitimate family comfort choice if stairs, crowds, or the child are done.</p></div>
+<div class="detail-card full"><h4>Tomorrow prep</h4><p>Confirm Skytree and teamLab ticket times. Pack a lighter day bag because Day 3 has the longest attraction chain.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Cross Shinjuku Vision</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~8.3 km route</span>
+<span class="fact-pill">Fastest family move usually: ~25-35 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~1 hr 45 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~25-35 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~25-35 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Marunouchi Line or a direct taxi back to Ginza are both sensible late-day choices.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Cross Shinjuku Vision, 3-23-18 Shinjuku, Shinjuku City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+</div></div></div></div>
+</details>
+</div>
+<aside aria-label="Day 2 side notes" class="side-stack">
+<div class="side-card"><h3>Booking priority</h3><p>Book Shibuya Sky as soon as your date opens. Evening slots can sell out and outdoor access depends on weather.</p></div>
+<div class="side-card"><h3>Best cut</h3><p>If the day runs long, skip Shinjuku 3D Cat. It is fun, but Shibuya Sky is the anchor.</p></div>
+<div class="side-card"><h3>Clothing</h3><p>Comfortable shoes, breathable layers, and pockets matter because rooftop carry-in rules restrict bags.</p></div>
+</aside>
+</div>
+</section>
+<section aria-label="Day 3 Skytree Asakusa Akihabara teamLab" class="day-panel glass" data-day-panel="" id="day3" role="tabpanel">
+<div class="day-hero">
+<div class="day-title">
+<div class="day-kicker">
+<span class="badge hot">Tuesday</span>
+<span class="badge">June 9, 2026</span>
+<span class="badge cool">Eastern + Azabudai</span>
+<span class="badge warn">Longest day</span>
+</div>
+<h2>Day 3: Skytree, Asakusa, Akihabara, teamLab</h2>
+<p>The densest day is structured as skyline first, culture second, shopping third, immersive art last. Keep the optional cuts visible and use taxis when the route starts costing too much energy.</p>
+</div>
+<div aria-label="Day 3 quick stats" class="day-score">
+<div class="score-row"><span>Start</span><strong>8:30 AM hotel</strong></div>
+<div class="score-row"><span>Walking load</span><strong>High</strong></div>
+<div class="score-row"><span>Critical ticket</span><strong>teamLab evening</strong></div>
+</div>
+</div>
+<div class="day-body">
+<div class="timeline">
+<details class="activity-card" open="">
+<summary>
+<div class="timebox"><strong>8:30 AM</strong><strong>9:15 AM</strong><span>45m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Ginza to Tokyo Skytree Town</h3><p>Go early to beat the hotter, busier middle of the day.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~25-35 min train</span><span class="route-preview-distance">~7.5 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Hotel / Ginza</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~7.5 km route</span>
+<span class="fact-pill">Fastest family move usually: ~25-35 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~1 hr 40 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~25-35 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~20-25 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Prioritize the simplest route to Oshiage over shaving a few minutes with a more complex transfer.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="apple" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="google" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Route idea</h4><p>Use live navigation from Ginza/Higashi-Ginza to Oshiage or Tokyo Skytree Station. Prioritize fewer transfers over fastest time.</p></div>
+<div class="detail-card"><h4>Pacing note</h4><p>Skytree is vertical and mall-based, which makes it a good first stop for elevators, restrooms, and controlled walking.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>9:15 AM</strong><strong>11:00 AM</strong><span>1h 45m</span></div>
+<div class="activity-main"><span class="activity-tag">Skyline</span><h3>Tokyo Skytree observation deck</h3><p>Start high with a clear weather window and easy indoor facilities.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~5 min walk</span><span class="route-preview-distance">~0.3 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Tokyo Skytree</p><code class="address-line">1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Skytree" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Tokyo Skytree, 1-1-2 Oshiage, Sumida-ku, Tokyo 131-0045, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Tokyo Skytree Town / station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.3 km</span>
+<span class="fact-pill">Fastest family move usually: ~5 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~5 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Once you reach the complex, elevators and signage make the final approach easy.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="apple" data-origin="Tokyo Skytree Town, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="google" data-origin="Tokyo Skytree Town, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Cost note</h4><p>Planning estimate: combo ticket for Floor 350 and Floor 450 starts around 3,000 yen for adults and 1,500 yen for children 6-14; prices vary by product/date.</p></div>
+<div class="detail-card"><h4>Why it matters</h4><p>Skytree is the tallest structure in Japan and gives a panoramic view over the east side, Sumida River, and, in clear weather, Mt. Fuji.</p></div>
+<div class="detail-card full"><h4>Family tactic</h4><p>Book morning tickets. Do the glass floor only if everyone is comfortable; otherwise treat the cafe and window views as the win.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>11:00 AM</strong><strong>11:45 AM</strong><span>45m</span></div>
+<div class="activity-main"><span class="activity-tag">Rest</span><h3>Tokyo Solamachi snack and bathroom reset</h3><p>Before moving to Asakusa, use the mall infrastructure.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~4 min walk</span><span class="route-preview-distance">Same complex</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Skytree deck exit</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: Same complex</span>
+<span class="fact-pill">Fastest family move usually: ~4 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~4 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Use the mall before going back outside. This is the cleanest reset of the eastern day.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tokyo Solamachi, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="apple" data-origin="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tokyo Solamachi, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" data-map-app="google" data-origin="Tokyo Skytree, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>What to do</h4><p>Hydrate, snack, restroom, and pick up a small souvenir if lines are manageable.</p></div>
+<div class="detail-card"><h4>Why here</h4><p>This is the cleanest reset before Asakusa's outdoor crowds and Nakamise shopping street.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>11:45 AM</strong><strong>12:10 PM</strong><span>25m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Skytree to Asakusa</h3><p>Short hop by train, taxi, or walking route if weather and legs cooperate.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~12-18 min train</span><span class="route-preview-distance">~2.1 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Tokyo Solamachi</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~2.1 km</span>
+<span class="fact-pill">Fastest family move usually: ~12-18 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~28-30 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~12-18 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~10-12 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Taxi is excellent here if the older travelers are already feeling the day.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" data-map-app="apple" data-origin="Tokyo Solamachi, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" data-map-app="google" data-origin="Tokyo Solamachi, 1-1-2 Oshiage, Sumida City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Taxi option</h4><p>A short taxi between Skytree and Senso-ji can be worth it for a multi-generational group.</p></div>
+<div class="detail-card"><h4>Walk option</h4><p>Only walk if the weather is mild. Save legs for the temple approach and Akihabara/teamLab later.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>12:10 PM</strong><strong>1:30 PM</strong><span>1h 20m</span></div>
+<div class="activity-main"><span class="activity-tag">Asakusa</span><h3>Senso-ji Temple and Nakamise approach</h3><p>Tokyo's oldest temple, historic gates, souvenir street, and strong cultural context.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~8 min walk</span><span class="route-preview-distance">~0.6 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Senso-ji Temple</p><code class="address-line">2-3-1 Asakusa, Taito-ku, Tokyo 111-0032, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Senso-ji+Temple+Asakusa" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Senso-ji Temple, 2-3-1 Asakusa, Taito-ku, Tokyo 111-0032, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Asakusa arrival point</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.6 km</span>
+<span class="fact-pill">Fastest family move usually: ~8 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~8 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">The last stretch into Senso-ji is best done slowly on foot.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" data-map-app="apple" data-origin="Asakusa Station, Taito City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" data-map-app="google" data-origin="Asakusa Station, Taito City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Senso-ji is Tokyo's oldest temple and a major center of devotion to Kannon, the bodhisattva of compassion.</p></div>
+<div class="detail-card"><h4>Cost</h4><p>Temple precinct: free. Shopping and snacks along Nakamise are pay-as-you-go.</p></div>
+<div class="detail-card full"><h4>Crowd tactic</h4><p>Move one direction: Kaminarimon gate, Nakamise, Hozomon, main hall, side exit. Do not zigzag through the densest shopping lane.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>1:30 PM</strong><strong>2:30 PM</strong><span>1h</span></div>
+<div class="activity-main"><span class="activity-tag">Lunch</span><h3>Asakusa seated lunch</h3><p>Choose comfort and speed over a famous queue.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~4 min walk</span><span class="route-preview-distance">~0.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Senso-ji</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~4 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~4 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>Not worth a train</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~5 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Stay close to the temple or station edge so the next transfer stays simple.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Asakusa Station, Taito City, Tokyo, Japan" data-map-app="apple" data-origin="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Asakusa Station, Taito City, Tokyo, Japan" data-map-app="google" data-origin="Senso-ji Temple, 2-3-1 Asakusa, Taito City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Best format</h4><p>Tempura, soba, sushi bowls, family restaurants, or department-style dining near Asakusa Station.</p></div>
+<div class="detail-card"><h4>Important</h4><p>Use this as a real seated rest. Akihabara and teamLab are stimulation-heavy.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>2:30 PM</strong><strong>3:00 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Asakusa to Akihabara</h3><p>Short transfer into Tokyo's electronics and pop-culture district.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~10-15 min train</span><span class="route-preview-distance">~3.2 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Asakusa</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~3.2 km route</span>
+<span class="fact-pill">Fastest family move usually: ~10-15 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~40-45 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~10-15 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~10-15 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Tsukuba Express is fast if the station access works well for the group that day.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" data-map-app="apple" data-origin="Asakusa Station, Taito City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" data-map-app="google" data-origin="Asakusa Station, Taito City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Route idea</h4><p>Tsukuba Express from Asakusa to Akihabara is direct. Taxi is a reasonable alternative if station access is awkward.</p></div>
+<div class="detail-card"><h4>Bag rule</h4><p>Keep purchases small. You still have teamLab and a return to Ginza.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>3:00 PM</strong><strong>4:30 PM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Akihabara</span><h3>Akihabara Electric Town sampler</h3><p>Electronics, anime, capsule toys, arcades, and controlled sensory overload.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~5 min walk</span><span class="route-preview-distance">~0.3 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Area</h4><p>Akihabara Electric Town</p><code class="address-line">Sotokanda, Chiyoda-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Akihabara+Electric+Town" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Akihabara Electric Town, Sotokanda, Chiyoda-ku, Tokyo, Japan" type="button">Copy area</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Akihabara Station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.3 km</span>
+<span class="fact-pill">Fastest family move usually: ~5 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~5 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Pick one anchor store near the station exit before the neighborhood fans out in every direction.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" data-map-app="apple" data-origin="Akihabara Station, Chiyoda City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" data-map-app="google" data-origin="Akihabara Station, Chiyoda City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Akihabara grew from electronics retail into a world-famous pop-culture district for anime, manga, games, gadgets, and specialty shops.</p></div>
+<div class="detail-card"><h4>Family tactic</h4><p>Pick one anchor store and one capsule/gacha stop. Do not try to browse every floor in the neighborhood.</p></div>
+<div class="detail-card full"><h4>Cut option</h4><p>If energy is low, skip Akihabara and go from Asakusa or Ginza directly to Azabudai Hills before teamLab.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>4:30 PM</strong><strong>5:15 PM</strong><span>45m</span></div>
+<div class="activity-main"><span class="activity-tag">Transit</span><h3>Akihabara to Azabudai Hills / Kamiyacho</h3><p>Transition from pop culture to immersive art with a decompression buffer.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~30-35 min train</span><span class="route-preview-distance">~6.9 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Akihabara</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~6.9 km route</span>
+<span class="fact-pill">Fastest family move usually: ~30-35 min train</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~1 hr 35 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~30-35 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~20-25 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Ride-hail becomes attractive if the teamLab tickets are time-sensitive and bags are piling up.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="apple" data-origin="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="google" data-origin="Akihabara Electric Town, Sotokanda, Chiyoda City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Route idea</h4><p>Use Hibiya Line access toward Kamiyacho when convenient, or taxi if the group is carrying purchases.</p></div>
+<div class="detail-card"><h4>Why buffer matters</h4><p>teamLab is dark, immersive, and visually intense. Arrive calm, fed, and restroom-ready.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>5:15 PM</strong><strong>6:15 PM</strong><span>1h</span></div>
+<div class="activity-main"><span class="activity-tag">Dinner</span><h3>Azabudai Hills early dinner and teamLab staging</h3><p>Eat before entering; no re-entry means food should happen first.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~4 min walk</span><span class="route-preview-distance">~0.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Area</h4><p>Azabudai Hills Garden Plaza / Kamiyacho area</p><code class="address-line">Azabudai Hills, Minato-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Azabudai+Hills+Garden+Plaza+B" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Azabudai Hills Garden Plaza B, Minato-ku, Tokyo, Japan" type="button">Copy area</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Kamiyacho / Garden Plaza</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~4 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~4 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Eat inside the same complex so there is no extra transit risk before the entry slot.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="apple" data-origin="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="google" data-origin="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Target</h4><p>Bathroom, dinner, water, and ticket QR codes ready before the entry time.</p></div>
+<div class="detail-card"><h4>Child note</h4><p>Explain the dark rooms and moving projections before entering so the museum feels exciting rather than surprising.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>6:15 PM</strong><strong>8:15 PM</strong><span>2h</span></div>
+<div class="activity-main"><span class="activity-tag">Ticketed</span><h3>teamLab Borderless at Azabudai Hills</h3><p>An immersive digital-art finale with no fixed route and no re-entry.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~4 min walk</span><span class="route-preview-distance">~0.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>teamLab Borderless: MORI Building DIGITAL ART MUSEUM</p><code class="address-line">Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=teamLab+Borderless+Azabudai+Hills" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="teamLab Borderless, Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato-ku, Tokyo, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Dinner / Garden Plaza</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~4 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~4 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">This should be a slow indoor walk from dinner to the museum entrance.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="teamLab Borderless, Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="apple" data-origin="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="teamLab Borderless, Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato City, Tokyo, Japan" data-map-app="google" data-origin="Azabudai Hills Garden Plaza B, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Cost note</h4><p>Planning estimate: adult entrance pass starts around 3,600 yen, ages 13-17 around 2,800 yen, ages 4-12 around 1,500 yen, ages 3 and under free. Dynamic pricing can apply.</p></div>
+<div class="detail-card"><h4>Why it matters</h4><p>teamLab Borderless is designed as a museum without a map: artworks move, connect, and respond across rooms.</p></div>
+<div class="detail-card full"><h4>Safety note</h4><p>The venue is dark with uneven-feeling floors and visual intensity. Hold the child's hand, move slowly, and use the rest areas if needed.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>8:15 PM</strong><strong>8:45 PM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Return</span><h3>Azabudai Hills to Ginza hotel</h3><p>End the longest day with the simplest return path available.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~12-18 min taxi</span><span class="route-preview-distance">~4.3 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card"><h4>Recommended</h4><p>Taxi back to Ginza if anyone is overstimulated or footsore. This is the easiest place to buy back comfort.</p></div>
+<div class="detail-card"><h4>Train</h4><p>Kamiyacho / Roppongi-Itchome connections can work, but check elevators and transfer walking in the moment.</p></div>
+<div class="detail-card full"><h4>Departure prep</h4><p>Pack most luggage tonight. Day 4 has a hard airport deadline.</p></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>teamLab Borderless</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~4.3 km route</span>
+<span class="fact-pill">Fastest family move usually: ~12-18 min taxi</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~55-60 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~22-30 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~12-18 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">A taxi is often the smartest comfort purchase after a long immersive museum visit.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="teamLab Borderless, Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="teamLab Borderless, Azabudai Hills Garden Plaza B B1, 5-9 Toranomon, Minato City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+</div></div></div></div>
+</details>
+</div>
+<aside aria-label="Day 3 side notes" class="side-stack">
+<div class="side-card"><h3>Day 3 truth</h3><p>This is the only high-density day. The dashboard intentionally includes cut points after Asakusa and after Akihabara.</p></div>
+<div class="side-card"><h3>Ticket order</h3><ul><li>Book teamLab first.</li><li>Book Skytree second.</li><li>Keep Akihabara flexible.</li></ul></div>
+<div class="side-card"><h3>Rest rule</h3><p>Every second activity needs a bathroom or sitting opportunity. Solamachi, lunch, and Azabudai dinner are not optional.</p></div>
+</aside>
+</div>
+</section>
+<section aria-label="Day 4 Tsukiji and Narita departure" class="day-panel glass" data-day-panel="" id="day4" role="tabpanel">
+<div class="day-hero">
+<div class="day-title">
+<div class="day-kicker">
+<span class="badge hot">Wednesday</span>
+<span class="badge">June 10, 2026</span>
+<span class="badge cool">Departure day</span>
+<span class="badge warn">Hard airport deadline</span>
+</div>
+<h2>Day 4: Tsukiji breakfast + Narita extraction</h2>
+<p>Departure day is built backward from the 1:45 PM flight. Tsukiji is a compact breakfast mission only; the real objective is reaching Narita Terminal 2 calm, early, and with reserved seats.</p>
+</div>
+<div aria-label="Day 4 quick stats" class="day-score">
+<div class="score-row"><span>Flight</span><strong>1:45 PM NRT T2</strong></div>
+<div class="score-row"><span>Airport target</span><strong>About 11:30 AM</strong></div>
+<div class="score-row"><span>Risk</span><strong>Wednesday shop closures</strong></div>
+</div>
+</div>
+<div class="day-body">
+<div class="timeline">
+<details class="activity-card" open="">
+<summary>
+<div class="timebox"><strong>6:45 AM</strong><strong>7:15 AM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Pack</span><h3>Final pack, luggage staging, checkout prep</h3><p>Make the room departure nearly complete before breakfast.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Hotel departure prep</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p><strong>Hotel departure prep</strong></p>
+</div>
+<span class="selected-mode-badge neutral">No transfer</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Travel distance: already on site</span>
+<span class="fact-pill">Map mode not needed for this block</span>
+</div>
+<p class="route-note">This is another on-site block. Keep passports, chargers, and airport tickets visible before anyone leaves for breakfast.</p>
+</div>
+<div class="detail-card"><h4>Checklist</h4><ul><li>Passports and boarding documents in one pouch.</li><li>Return N'EX tickets accessible.</li><li>Souvenirs packed, batteries in carry-on.</li></ul></div>
+<div class="detail-card"><h4>Hotel move</h4><p>Ask the front desk about luggage hold only if needed. The safest plan is to return by 8:45 AM and leave promptly.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>7:15 AM</strong><strong>8:45 AM</strong><span>1h 30m</span></div>
+<div class="activity-main"><span class="activity-tag">Tsukiji</span><h3>Tsukiji Outer Market breakfast mission</h3><p>Seafood, tamagoyaki, snacks, and market energy close to Ginza; keep it short and strategic.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~18 min walk</span><span class="route-preview-distance">~1.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Location</h4><p>Tsukiji Outer Market</p><code class="address-line">4 Chome Tsukiji, Chuo-ku, Tokyo 104-0045, Japan</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Tsukiji+Outer+Market" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Tsukiji Outer Market, 4 Chome Tsukiji, Chuo-ku, Tokyo 104-0045, Japan" type="button">Copy address</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Hotel / Ginza</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~1.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~18 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~18 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~10 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~7 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Walking is pleasant if weather is fine. A short taxi is acceptable if energy or timing is shaky.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tsukiji Outer Market, 4 Chome Tsukiji, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tsukiji Outer Market, 4 Chome Tsukiji, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Why it matters</h4><p>Tsukiji Outer Market remains a dense food town of wholesale shops, retail counters, restaurants, and ready-to-eat specialties.</p></div>
+<div class="detail-card"><h4>Wednesday warning</h4><p>Many shops keep individual hours and some close Wednesdays. Treat Tsukiji as flexible grazing, not a reservation-dependent meal.</p></div>
+<div class="detail-card full"><h4>Safety tactic</h4><p>Wear closed-toe shoes. Floors can be wet, carts move through the area, and the group should stay compact.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>8:45 AM</strong><strong>9:20 AM</strong><span>35m</span></div>
+<div class="activity-main"><span class="activity-tag">Return</span><h3>Return to hotel, restroom, final bag check</h3><p>No more sightseeing detours after this point.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~18 min walk</span><span class="route-preview-distance">~1.2 km</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Tsukiji Outer Market</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~1.2 km</span>
+<span class="fact-pill">Fastest family move usually: ~18 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~18 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~10 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~7 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">No detours on this leg. Get back, regroup, and switch fully into airport mode.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="apple" data-origin="Tsukiji Outer Market, 4 Chome Tsukiji, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" data-map-app="google" data-origin="Tsukiji Outer Market, 4 Chome Tsukiji, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Hard rule</h4><p>Return to the hotel even if Tsukiji is fun. The airport timeline now controls the day.</p></div>
+<div class="detail-card"><h4>Buffer use</h4><p>Restroom, repack market snacks, check under beds, collect chargers, and confirm taxi or train route to Tokyo Station.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>9:20 AM</strong><strong>9:50 AM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Checkout</span><h3>Checkout and load out</h3><p>Make a clean departure from Ginza with passports and N'EX tickets in hand.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Already at the hotel</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p><strong>Already at the hotel</strong></p>
+</div>
+<span class="selected-mode-badge neutral">No transfer</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Travel distance: already on site</span>
+<span class="fact-pill">Map mode not needed for this block</span>
+</div>
+<p class="route-note">No transfer needed. This is the clean handoff from room keys to airport extraction.</p>
+</div>
+<div class="detail-card"><h4>Hotel</h4><p>Sotetsu Fresa Inn Ginza-Nanachome</p><code class="address-line">7-11-12 Ginza, Chuo-ku, Tokyo 104-0061, Japan</code></div>
+<div class="detail-card"><h4>Best move</h4><p>Use a taxi from the hotel to Tokyo Station if carrying luggage. Do not add station walking complexity now.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>9:50 AM</strong><strong>10:20 AM</strong><span>30m</span></div>
+<div class="activity-main"><span class="activity-tag">Transfer</span><h3>Hotel to Tokyo Station N'EX platform</h3><p>Arrive early enough to locate elevators, platform, and reserved seats without panic.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~15-18 min taxi</span><span class="route-preview-distance">~3.8 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Destination</h4><p>Tokyo Station - Narita Express platforms</p><code class="address-line">Tokyo Station, Marunouchi / Yaesu area, Chiyoda-ku, Tokyo</code><div class="map-row"><a class="mini-link accent" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo+Station+Narita+Express" rel="noopener" target="_blank">Open map</a><button class="copy-btn" data-copy="Tokyo Station Narita Express, Chiyoda-ku, Tokyo, Japan" type="button">Copy destination</button></div></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Hotel</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~3.8 km route</span>
+<span class="fact-pill">Fastest family move usually: ~15-18 min taxi</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~45-50 min with bags</strong>
+<small>Possible, but luggage makes this feel longer.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~18-25 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~15-18 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Taxi is usually best with luggage. Transit only wins if everyone is moving smoothly and you want to avoid road traffic.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Tokyo Station, Chiyoda City, Tokyo, Japan" data-map-app="apple" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Tokyo Station, Chiyoda City, Tokyo, Japan" data-map-app="google" data-origin="Sotetsu Fresa Inn Ginza-Nanachome, 7-11-12 Ginza, Chuo City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Family tactic</h4><p>One adult watches bags while another confirms the platform. Keep everyone together once moving down to the train.</p></div>
+<div class="detail-card"><h4>Timing note</h4><p>The listed time is a planning block. Use the exact reserved N'EX departure purchased at Narita.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>10:20 AM</strong><strong>11:30 AM</strong><span>1h 10m</span></div>
+<div class="activity-main"><span class="activity-tag">N'EX</span><h3>Narita Express to Narita Airport Terminal 2-3</h3><p>Reserved-seat extraction back to the airport.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~55-65 min N'EX</span><span class="route-preview-distance">~60 km route</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Route</h4><p>Tokyo Station to Narita Airport Terminal 2-3 Station via Narita Express.</p><code class="address-line">Tokyo Station → Narita Airport Terminal 2-3 Station</code></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Tokyo Station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~60 km route</span>
+<span class="fact-pill">Fastest family move usually: ~55-65 min N'EX</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>Too far on foot</strong>
+<small>Not practical for this itinerary block.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>~55-65 min train</strong>
+<small>Check live platform routing on the day for the exact path.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>~70-90 min taxi</strong>
+<small>Road route only; useful when feet or weather start to win.</small>
+</div>
+</div>
+<p class="route-note">Reserved seats keep this final extraction calm and predictable.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Narita Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" data-map-app="apple" data-origin="Tokyo Station, Chiyoda City, Tokyo, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Narita Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" data-map-app="google" data-origin="Tokyo Station, Chiyoda City, Tokyo, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Ticket note</h4><p>Use the return half of the N'EX Tokyo Round Trip Ticket if purchased on arrival.</p></div>
+<div class="detail-card"><h4>Backup</h4><p>If you miss the reserved train, immediately ask JR staff about next-seat options. Do not improvise slowly.</p></div>
+</div></div></div></div>
+</details>
+<details class="activity-card">
+<summary>
+<div class="timebox"><strong>11:30 AM</strong><strong>1:45 PM</strong><span>2h 15m</span></div>
+<div class="activity-main"><span class="activity-tag">Depart</span><h3>NRT Terminal 2 check-in, security, departure</h3><p>Final buffer for airline check-in, security, food, restroom, and gate movement.</p><div class="route-preview"><span class="route-preview-label">Route</span><span class="route-preview-value">Typical move: ~8-10 min walk</span><span class="route-preview-distance">~0.4 km in-terminal</span></div></div>
+<div aria-hidden="true" class="chevron">+</div>
+</summary>
+<div class="accordion-grid"><div class="accordion-inner"><div class="detail-wrap"><div class="detail-grid">
+<div class="detail-card full"><h4>Airport</h4><p>Narita International Airport Terminal 2</p><code class="address-line">1-1 Furugome, Narita, Chiba 282-0004, Japan</code></div>
+<div class="detail-card full transfer-card">
+<div class="transfer-head">
+<div>
+<h4>Route to here</h4>
+<p>Coming from <strong>Narita Airport Terminal 2-3 Station</strong></p>
+</div>
+<span class="selected-mode-badge" data-selected-mode-badge="">Train maps</span>
+</div>
+<div class="inline-facts">
+<span class="fact-pill">Approx route distance: ~0.4 km in-terminal</span>
+<span class="fact-pill">Fastest family move usually: ~8-10 min walk</span>
+</div>
+<div class="mode-matrix">
+<div class="mode-box" data-mode-box="walk">
+<span>🚶 Walk</span>
+<strong>~8-10 min walk</strong>
+<small>Best for short neighborhood moves or same-area hops.</small>
+</div>
+<div class="mode-box is-active" data-mode-box="transit">
+<span>🚆 Train / Transit</span>
+<strong>No train needed</strong>
+<small>Stay on foot for this one and save the train for longer legs.</small>
+</div>
+<div class="mode-box" data-mode-box="ride">
+<span>🚕 Ride-hail / Taxi</span>
+<strong>No ride needed</strong>
+<small>Save taxi or ride-hail budget for the bigger transfers.</small>
+</div>
+</div>
+<p class="route-note">Stay together from platform to check-in counter and let the airport buffer do its job.</p>
+<div class="map-app-row">
+<a class="map-app-link apple" data-destination="Narita International Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" data-map-app="apple" data-origin="Narita Airport Terminal 2-3 Station, Narita, Chiba, Japan" href="#"> Apple Maps</a>
+<a class="map-app-link google" data-destination="Narita International Airport Terminal 2, 1-1 Furugome, Narita, Chiba 282-0004, Japan" data-map-app="google" data-origin="Narita Airport Terminal 2-3 Station, Narita, Chiba, Japan" href="#">Google Maps</a>
+</div>
+<div class="map-helper">The mode switch above controls whether these open as walk, train, or ride-hail / taxi routes.</div>
+</div>
+<div class="detail-card"><h4>Checklist</h4><ul><li>Return rental Wi-Fi if applicable.</li><li>Use tax-free packing rules if purchases require inspection.</li><li>Keep snacks and medicine accessible.</li></ul></div>
+<div class="detail-card"><h4>Flight</h4><p>Scheduled departure: 1:45 PM from NRT Terminal 2. Airline counters and gates can require extra walking.</p></div>
+</div></div></div></div>
+</details>
+</div>
+<aside aria-label="Day 4 side notes" class="side-stack">
+<div class="side-card"><h3>Departure rule</h3><p>Tsukiji is optional. The airport is mandatory. Cut Tsukiji immediately if packing, weather, or fatigue is not cooperating.</p></div>
+<div class="side-card"><h3>Market note</h3><p>Individual Tsukiji shops vary by day and hour. Avoid queue-dependent restaurants on a flight day.</p></div>
+<div class="side-card"><h3>Best splurge</h3><p>Ride-hail or taxi from the hotel to Tokyo Station. It reduces luggage stress at exactly the right moment.</p></div>
+</aside>
+</div>
+</section>
+</main>
+<section aria-label="Planning overview" class="dashboard-grid">
+<div class="panel glass">
+<h2>Route architecture</h2>
+<p>Each day is geographically clustered so the group spends less time changing trains and more time in places with clear visual payoff, shade, food, bathrooms, or easy exit options.</p>
+<div class="route-cards">
+<div class="route-card" data-num="1">
+<strong>Arrival shield</strong>
+<span>NRT Terminal 2, Narita Express, hotel decompression, Ginza pedestrian zone, GINZA SIX dessert.</span>
+</div>
+<div class="route-card" data-num="2">
+<strong>Western icons</strong>
+<span>Meiji Jingu shade, Harajuku texture, Shibuya crossing, sunset Shibuya Sky, Shinjuku 3D Cat.</span>
+</div>
+<div class="route-card" data-num="3">
+<strong>Eastern skyline</strong>
+<span>Skytree morning, Asakusa heritage, Akihabara pop culture, Azabudai Hills teamLab finish.</span>
+</div>
+<div class="route-card" data-num="4">
+<strong>Clean exit</strong>
+<span>Tsukiji breakfast only if moving well, then Tokyo Station and reserved N'EX to Narita Terminal 2.</span>
+</div>
+</div>
+</div>
+<aside class="panel glass">
+<h2>Family operating rules</h2>
+<div class="strategy-list">
+<div class="strategy-item">
+<div class="bubble">♿</div>
+<div><strong>Escalator fatigue is real.</strong><span>Use elevators when available and treat station transfers as activities, not dead time.</span></div>
+</div>
+<div class="strategy-item">
+<div class="bubble">🧃</div>
+<div><strong>Snack before the crash.</strong><span>Every day includes a planned cafe or shopping-mall rest before the most crowded slot.</span></div>
+</div>
+<div class="strategy-item">
+<div class="bubble">🚕</div>
+<div><strong>Ride-hail / taxi switch is approved.</strong><span>For hotel-to-station or late-night returns, booking a ride can save the day.</span></div>
+</div>
+</div>
+</aside>
+</section>
+<footer class="footer glass">
+<p><strong>Planning note:</strong> Transfer distances and times are route-planning estimates. Use the mode switch for walk, train, or ride-hail / taxi maps, then confirm live conditions on the day. There is no self-drive mode in this file.</p>
+</footer>
+</div>
+<script>
+    (function () {
+      "use strict";
+      document.documentElement.classList.add("js-enabled");
+
+      var dayTabs = Array.prototype.slice.call(document.querySelectorAll("[data-day-tab]"));
+      var dayPanels = Array.prototype.slice.call(document.querySelectorAll("[data-day-panel]"));
+      var modeButtons = Array.prototype.slice.call(document.querySelectorAll("[data-route-mode]"));
+      var globalModeLabel = document.querySelector("[data-global-mode-label]");
+      var MODE_LABELS = {
+        walk: "Walk",
+        transit: "Train",
+        ride: "Ride-hail"
+      };
+
+      function safeStore(key, value) {
+        try { window.localStorage.setItem(key, value); } catch (error) { /* storage can be blocked in mobile webviews */ }
+      }
+
+      function safeRead(key) {
+        try { return window.localStorage.getItem(key); } catch (error) { return null; }
+      }
+
+      function buildMapUrl(app, origin, destination, mode) {
+        if (!origin || !destination) return "#";
+        if (app === "apple") {
+          var dirflg = mode === "walk" ? "w" : (mode === "transit" ? "r" : "d");
+          return "https://maps.apple.com/?saddr=" + encodeURIComponent(origin) + "&daddr=" + encodeURIComponent(destination) + "&dirflg=" + dirflg;
+        }
+        var travelmode = mode === "walk" ? "walking" : (mode === "transit" ? "transit" : "driving");
+        return "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(origin) + "&destination=" + encodeURIComponent(destination) + "&travelmode=" + encodeURIComponent(travelmode);
+      }
+
+      function applyRouteMode(mode) {
+        if (!MODE_LABELS[mode]) mode = "transit";
+        safeStore("tokyo-dashboard-route-mode", mode);
+
+        modeButtons.forEach(function (button) {
+          button.setAttribute("aria-pressed", button.getAttribute("data-route-mode") === mode ? "true" : "false");
+        });
+
+        if (globalModeLabel) globalModeLabel.textContent = MODE_LABELS[mode];
+
+        document.querySelectorAll("[data-selected-mode-badge]").forEach(function (badge) {
+          badge.textContent = MODE_LABELS[mode] + " maps";
+        });
+
+        document.querySelectorAll("[data-mode-box]").forEach(function (box) {
+          box.classList.toggle("is-active", box.getAttribute("data-mode-box") === mode);
+        });
+
+        document.querySelectorAll(".map-app-link[data-origin][data-destination]").forEach(function (link) {
+          var origin = link.getAttribute("data-origin");
+          var destination = link.getAttribute("data-destination");
+          var app = link.getAttribute("data-map-app");
+          link.setAttribute("href", buildMapUrl(app, origin, destination, mode));
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener");
+          var appName = app === "apple" ? "Apple Maps" : "Google Maps";
+          link.setAttribute("aria-label", "Open " + MODE_LABELS[mode] + " route in " + appName);
+        });
+      }
+
+      function scrollPanelIntoView(panel) {
+        if (!panel) return;
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            var toolbar = document.querySelector(".toolbar");
+            var isPhoneLayout = window.matchMedia && window.matchMedia("(max-width: 720px)").matches;
+            var offset = 14;
+
+            if (!isPhoneLayout && toolbar) {
+              offset = toolbar.getBoundingClientRect().height + 18;
+            }
+
+            var top = panel.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+          });
+        });
+      }
+
+      function activateDay(targetId, shouldScroll) {
+        var matched = false;
+        dayPanels.forEach(function (panel) {
+          var active = panel.id === targetId;
+          panel.hidden = !active;
+          panel.setAttribute("aria-hidden", active ? "false" : "true");
+          if (active) matched = true;
+        });
+
+        if (!matched && dayPanels.length) {
+          targetId = dayPanels[0].id;
+          dayPanels.forEach(function (panel, index) {
+            panel.hidden = index !== 0;
+            panel.setAttribute("aria-hidden", index === 0 ? "false" : "true");
+          });
+        }
+
+        dayTabs.forEach(function (tab) {
+          var active = tab.getAttribute("data-target") === targetId;
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+          tab.tabIndex = active ? 0 : -1;
+        });
+
+        safeStore("tokyo-dashboard-active-day", targetId);
+
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, "", "#" + targetId);
+        }
+
+        if (shouldScroll) {
+          var panel = document.getElementById(targetId);
+          scrollPanelIntoView(panel);
+        }
+      }
+
+      function setAllDetails(open) {
+        document.querySelectorAll("details.activity-card").forEach(function (item) {
+          item.open = open;
+        });
+      }
+
+      function copyText(text, button) {
+        function done(message) {
+          if (!button) return;
+          var original = button.getAttribute("data-original-label") || button.textContent;
+          button.setAttribute("data-original-label", original);
+          button.textContent = message;
+          window.setTimeout(function () { button.textContent = original; }, 1200);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function () {
+            done("Copied");
+          }).catch(function () {
+            done("Copy blocked");
+          });
+        } else {
+          var temp = document.createElement("textarea");
+          temp.value = text;
+          temp.setAttribute("readonly", "");
+          temp.style.position = "fixed";
+          temp.style.left = "-9999px";
+          document.body.appendChild(temp);
+          temp.select();
+          try { document.execCommand("copy"); done("Copied"); }
+          catch (error) { done("Copy blocked"); }
+          document.body.removeChild(temp);
+        }
+      }
+
+      document.addEventListener("click", function (event) {
+        var tab = event.target.closest("[data-day-tab]");
+        if (tab) {
+          activateDay(tab.getAttribute("data-target"), true);
+          return;
+        }
+
+        var modeButton = event.target.closest("[data-route-mode]");
+        if (modeButton) {
+          applyRouteMode(modeButton.getAttribute("data-route-mode"));
+          return;
+        }
+
+        var action = event.target.closest("[data-action]");
+        if (action) {
+          var type = action.getAttribute("data-action");
+          if (type === "print") window.print();
+          if (type === "open-all") setAllDetails(true);
+          if (type === "close-all") setAllDetails(false);
+          return;
+        }
+
+        var copy = event.target.closest("[data-copy]");
+        if (copy) {
+          copyText(copy.getAttribute("data-copy"), copy);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        var activeIndex = dayTabs.findIndex(function (tab) { return tab.getAttribute("aria-selected") === "true"; });
+        if (activeIndex < 0) activeIndex = 0;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          event.preventDefault();
+          var next = dayTabs[(activeIndex + 1) % dayTabs.length];
+          if (next) { next.focus(); activateDay(next.getAttribute("data-target"), false); }
+        }
+
+        if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          event.preventDefault();
+          var prev = dayTabs[(activeIndex - 1 + dayTabs.length) % dayTabs.length];
+          if (prev) { prev.focus(); activateDay(prev.getAttribute("data-target"), false); }
+        }
+      });
+
+      var hashTarget = window.location.hash ? window.location.hash.replace("#", "") : "";
+      var storedTarget = safeRead("tokyo-dashboard-active-day");
+      var initialTarget = hashTarget || storedTarget || "day1";
+      activateDay(initialTarget, false);
+      applyRouteMode(safeRead("tokyo-dashboard-route-mode") || "transit");
+    })();
+  </script>
+</body>
+</html>
